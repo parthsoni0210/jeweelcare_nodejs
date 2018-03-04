@@ -1,10 +1,10 @@
 var mysql=require('mysql');
 var cnn=mysql.createPool({
 
-host:'localhost',
+host:'https://jewelcare.herokuapp.com/',
 user:'root',
 password:'',
-database:'jewelcare'
+database:'jewelcare' 
 
 });
 module.exports=cnn;
