@@ -1,9 +1,9 @@
 var mysql=require('mysql');
 var cnn=mysql.createPool({
 
-host:'localhost',
-user:'root',
-password:'',
+host:'jewelcare.db.9462939.19c.hostedresource.net ',
+user:'jewelcare',
+password:'Keyur@9898',
 database:'jewelcare' 
 
 });
