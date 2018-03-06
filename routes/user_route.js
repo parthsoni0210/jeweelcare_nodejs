@@ -31,7 +31,7 @@ var upload = multer({
 });
 
 router.put('/:id/:flag?', upload.single('image'), function (req, res, next) {
-    if (req.params.flag) {
+    if (req.params.flag=="true") {
         user.editUserImgUpload(req.params.id, req.body, req.file.filename, function (err, rows) {
 
             if (err) {
