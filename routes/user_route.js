@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var fs = require('fs');
 var multer = require('multer');
 var path = require('path');
 var user = require('../models/usermodel');
@@ -29,9 +29,19 @@ var storage = multer.diskStorage({
 var upload = multer({
     storage: storage
 });
-
+var img='';
 router.put('/:id/:flag?', upload.single('image'), function (req, res, next) {
-    if (req.params.flag=="true") {
+    if (req.params.flag == "true") {
+        img=req.body.user_image;
+        img=img.substring(img.lastIndexOf('/'));
+        var path = './public/images/users'+img;
+        fs.unlink(path, function (err) {
+            if (err) {
+                console.log(err);
+            }
+            console.log(img+' Deleted successfuly');
+        });
+
         user.editUserImgUpload(req.params.id, req.body, req.file.filename, function (err, rows) {
 
             if (err) {
@@ -40,9 +50,7 @@ router.put('/:id/:flag?', upload.single('image'), function (req, res, next) {
                 res.json(rows);
             }
         });
-    }
-    else
-    {
+    } else {
         user.editUser(req.params.id, req.body, function (err, rows) {
 
             if (err) {
