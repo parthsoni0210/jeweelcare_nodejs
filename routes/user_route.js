@@ -32,15 +32,15 @@ var upload = multer({
 var img='';
 router.put('/:id/:flag?', upload.single('image'), function (req, res, next) {
     if (req.params.flag == "true") {
-        img=req.body.user_image;
+        /* img=req.body.user_image;
         img=img.substring(img.lastIndexOf('/'));
         var path = './public/images/users'+img;
         fs.unlink(path, function (err) {
             if (err) {
                 console.log(err);
             }
-            alert(img+' Deleted successfuly');
-        });
+            console.log(img+' Deleted successfuly');
+        }); */
 
         user.editUserImgUpload(req.params.id, req.body, req.file.filename, function (err, rows) {
 
