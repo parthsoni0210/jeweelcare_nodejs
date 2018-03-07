@@ -39,7 +39,7 @@ router.put('/:id/:flag?', upload.single('image'), function (req, res, next) {
             if (err) {
                 console.log(err);
             }
-            console.log(img+' Deleted successfuly');
+            alert(img+' Deleted successfuly');
         });
 
         user.editUserImgUpload(req.params.id, req.body, req.file.filename, function (err, rows) {
