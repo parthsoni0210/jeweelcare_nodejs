@@ -29,9 +29,8 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 
 
-router.put('/:id/:flag?', upload.single('image'), function (req, res, next) {
-    if (req.params.flag=="true") {
-        user.editUserImgUpload(req.params.id, req.body, req.file.filename, function (err, rows) {
+router.put('/', upload.single('image'), function (req, res, next) {
+        user.editUserImgUpload(req.body, req.file.filename, function (err, rows) {
 
             if (err) {
                 res.json(err);
@@ -39,18 +38,6 @@ router.put('/:id/:flag?', upload.single('image'), function (req, res, next) {
                 res.json(rows);
             }
         });
-    }
-    else
-    {
-        user.editUser(req.params.id, req.body, function (err, rows) {
-
-            if (err) {
-                res.json(err);
-            } else {
-                res.json(rows);
-            }
-        });
-    }
 });
 
 
