@@ -28,7 +28,7 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 
 
-router.put('/', upload.single("image"), function (req, res, next) {
+router.put('/', upload.single("image"), (req, res, next) => {
     if (req.file != null) {
         user.editUserImgUpload(req.body, req.file.filename, function (err, rows) {
 
