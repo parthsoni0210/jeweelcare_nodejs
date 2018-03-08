@@ -18,7 +18,7 @@ router.get('/:id', function (req, res, next) {
 
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'public/images');
+        cb(null, '../public/images');
     },
     filename: (req, file, cb) => {
         x = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
