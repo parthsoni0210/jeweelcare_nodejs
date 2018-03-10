@@ -1,13 +1,18 @@
 var db=require('../dbconnection'); //reference of dbconnection.js
 
 var users={
-    
         
         user_login:function(user,callback){
         return  db.query('select * from user_table where user_email=? and user_password=?',[user.user_email,user.user_password],callback);
         },
         sign_up:function(user,filename,callback){
-            filename="https://jewelcare.herokuapp.com/images/"+filename;
+            if(this.filename==null){
+                filename="https://jewelcare.herokuapp.com/images/users/default.jpg";
+            }
+            else
+            {
+                filename="https://jewelcare.herokuapp.com/images/users/"+filename;
+            }
             return db.query('insert into user_table values(?,?,?,?,?,?,?,?)',[user.user_name,user.user_mobile_no,user.user_email,user.user_gender,user.user_bday,user.user_address,filename,user.user_password],callback);
         },
         getalluser:function(callback){           

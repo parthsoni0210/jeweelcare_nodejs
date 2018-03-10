@@ -21,7 +21,7 @@ var storage = multer.diskStorage({
         cb(null, 'public/images');
     },
     filename: (req, file, cb) => {
-        x = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
+        //x = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
