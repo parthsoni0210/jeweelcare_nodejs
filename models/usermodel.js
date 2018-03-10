@@ -6,7 +6,7 @@ var users={
         return  db.query('select * from user_table where user_email=? and user_password=?',[user.user_email,user.user_password],callback);
         },
         sign_up:function(user,filename,callback){
-            if(this.filename==null){
+            if(this.filename=="default"){
                 filename="https://jewelcare.herokuapp.com/images/users/default.jpg";
             }
             else

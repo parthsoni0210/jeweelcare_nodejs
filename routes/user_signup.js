@@ -19,7 +19,8 @@ var upload = multer({storage: storage});
 
 
 router.post('/',upload.single('image'),function(req,res,next){
-
+    if(req.file!=null)
+    {
         user.sign_up(req.body,req.file.filename,function(err,rows){
 
             if(err){
@@ -29,6 +30,19 @@ router.post('/',upload.single('image'),function(req,res,next){
                 res.json(rows);
             }
         });
+    }
+    else
+    {
+        user.sign_up(req.body,"default",function(err,rows){
+
+            if(err){
+                res.json(err);
+            }
+            else{
+                res.json(rows);
+            }
+        });
+    }
 });
 
 router.put('/',function(req,res,next){
