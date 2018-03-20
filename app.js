@@ -35,6 +35,8 @@ var wish=require('./routes/wishrouter');
 var wishDlt=require('./routes/wishalldeleterouter');
 var ldemo=require('./routes/demo_route');
 
+var count=require('./routes/countRoute');
+
 var app = express();
 
 // view engine setup
@@ -79,6 +81,7 @@ app.use('/wishlist',wish);
 app.use('/wishAllDelete',wishDlt);
 app.use('/live_demo',ldemo);
 
+app.use('/count',count);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
