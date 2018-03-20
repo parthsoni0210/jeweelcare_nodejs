@@ -3,7 +3,7 @@ var router = express.Router();
 var cnt = require('../models/countModel');
 
 router.get('/:id', function (req, res, next) {
-    if (req.params.id == 1) {
+    if (req.params.id == '1') {
         cnt.getcntUser(function (err, rows) {
             if (err) {
                 res.json(err);
@@ -12,7 +12,7 @@ router.get('/:id', function (req, res, next) {
             }
         });
     }
-    else if(req.params.id == 2){
+    else if(req.params.id == '2'){
         cnt.getcntProduct(function (err, rows) {
             if (err) {
                 res.json(err);
@@ -21,7 +21,7 @@ router.get('/:id', function (req, res, next) {
             }
         });
     }
-    else if(req.params.id == 3){
+    else if(req.params.id == '3'){
         cnt.getcntOrder(function (err, rows) {
             if (err) {
                 res.json(err);
