@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var cnt = require('../models/countModel');
+var cnt = require('../models/CountModel');
 
 router.get('/:id', function (req, res, next) {
     if (req.params.id == '1') {
