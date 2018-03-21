@@ -4,16 +4,26 @@ var multer = require('multer');
 var path = require('path')
 var user = require('../models/usermodel');
 
-router.get('/:id', function (req, res, next) {
+router.get('/:id?', function (req, res, next) {
+    if (req.params.id) {
+        user.getUserById(req.params.id, function (err, rows) {
 
-    user.getUserById(req.params.id, function (err, rows) {
-
-        if (err) {
-            res.json(err);
-        } else {
-            res.json(rows);
-        }
-    });
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(rows);
+            }
+        });
+    }
+    else {
+        user.getalluser(function (err, rows) {
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(rows);
+            }
+        });
+    }
 });
 
 var storage = multer.diskStorage({
@@ -25,7 +35,7 @@ var storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
-var upload = multer({storage: storage});
+var upload = multer({ storage: storage });
 
 
 router.put('/', upload.single("image"), (req, res, next) => {
@@ -50,5 +60,5 @@ router.put('/', upload.single("image"), (req, res, next) => {
     }
 });
 
-
-module.exports = router;
++
+    module.exports = router;
