@@ -4,8 +4,8 @@ var multer = require('multer');
 var path = require('path')
 var user = require('../models/usermodel');
 
-router.get('/:id?', function (req, res, next) {
-    if (req.params.id) {
+router.get('/:id', function (req, res, next) {
+    
         user.getUserById(req.params.id, function (err, rows) {
 
             if (err) {
@@ -14,16 +14,6 @@ router.get('/:id?', function (req, res, next) {
                 res.json(rows);
             }
         });
-    }
-    else {
-        user.getalluser(function (err, rows) {
-            if (err) {
-                res.json(err);
-            } else {
-                res.json(rows);
-            }
-        });
-    }
 });
 
 var storage = multer.diskStorage({
