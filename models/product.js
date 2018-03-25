@@ -11,7 +11,7 @@ var product={
     },
 
     addProduct:function(p,callback){
-        db.query("insert into product_table values(?,?,?,?,?,?,?,?,?,?)",[p.product_id,p.product_name,p.product_price,p.product_weight,p.product_image1,p.product_image2,p.product_image3,p.product_soh,p.product_desc,p.fk_cat_id],callback);
+        db.query("insert into product_table values(?,?,?,?,?,?,?,?,?,?,?,?,?)",[p.product_id,p.product_name,p.product_price,p.product_weight,p.product_image1,p.product_image2,p.product_image3,p.product_soh,p.product_desc,p.diamond,p.gold_color,p.ideal_for,p.fk_cat_id],callback);
     },
 
     deleteProduct:function(id,callback){
