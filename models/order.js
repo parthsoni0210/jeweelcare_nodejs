@@ -14,6 +14,10 @@ var order={
         db.query("select * from order_table where order_id=?",[id],callback);
     },
 
+    getOrderByCity:function(city,callback){
+        db.query("select * from order_table where delivery_address LIKE %?%",[city],callback);
+    },
+
     addOrder:function(p,callback){
         db.query("insert into order_table values(?,?,?,?,?,?,?,?,?)",[p.order_id,p.fk_email_id,p.fk_product_id,p.product_qty,p.o_product_weight,p.order_amount,p.delivery_address,p.order_date,p.order_status],callback);
     },

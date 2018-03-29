@@ -36,6 +36,7 @@ var wishDlt=require('./routes/wishalldeleterouter');
 var ldemo=require('./routes/demo_route');
 var updt_price=require('./routes/update_Price');
 var order_id=require('./routes/order_id_route');
+var orderCity=require('./routes/orderCity');
 
 var cnt=require('./routes/countRoute');
 
@@ -84,6 +85,7 @@ app.use('/wishAllDelete',wishDlt);
 app.use('/live_demo',ldemo);
 app.use('/update_price',updt_price);
 app.use('/order_id',order_id);
+app.use('/order_city',orderCity);
 
 app.use('/count',cnt);
 // catch 404 and forward to error handler
