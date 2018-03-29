@@ -60,5 +60,19 @@ router.put('/', upload.single("image"), (req, res, next) => {
     }
 });
 
+router.delete('/:id', function (req, res, next) {
+
+    user.deleteUser(req.params.id, function (err, count) {
+  
+      if (err) {
+        res.json(err);
+      }
+      else {
+        res.json(count);
+      }
+  
+    });
+
+});
 
 module.exports = router;

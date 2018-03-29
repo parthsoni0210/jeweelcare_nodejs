@@ -30,6 +30,9 @@ var users={
         },
         changePass(user,callback){
             return  db.query('update user_table set user_password=? where user_email=?',[user.user_password,user.user_email],callback);
+        },
+        deleteUser(id,callback){
+            return db.query('delete from user_table where user_email=?',[id],callback)
         }
     };
     
