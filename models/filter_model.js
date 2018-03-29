@@ -156,7 +156,7 @@ var pro = {
         }
 
 //5
-        else if (price == 200000 && diamond == "all" && color == "all" && ideal == "all" && cat == 0) {
+        else{
             //no change in filter
             return db.query('select * from product_table where product_soh>0', callback);
         }
