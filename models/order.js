@@ -15,7 +15,7 @@ var order={
     },
 
     getOrderByCity:function(city,callback){
-        db.query("select * from order_table where delivery_address LIKE '%'?'%' ",[city],callback);
+        db.query("select * from order_table where delivery_address LIKE '%''?''%' ",[city],callback);
     },
 
     addOrder:function(p,callback){
