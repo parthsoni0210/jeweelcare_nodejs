@@ -6,8 +6,12 @@ var order={
         db.query("select * from order_table",callback);
     },
 
-    getOrderById:function(id,callback){
+    getOrderByEmail:function(id,callback){
         db.query("select * from order_table where fk_email_id=? order by order_status desc",[id],callback);
+    },
+
+    getOrderById:function(id,callback){
+        db.query("select * from order_table where order_id=?",[id],callback);
     },
 
     addOrder:function(p,callback){

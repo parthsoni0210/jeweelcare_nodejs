@@ -6,7 +6,7 @@ router.get('/:id?',function(req,res,next){
     
    if(req.params.id){
     
-   order.getOrderById(req.params.id,function(err,rows){
+   order.getOrderByEmail(req.params.id,function(err,rows){
     
    if(err)
      {
