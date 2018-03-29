@@ -34,6 +34,10 @@ var product={
 
     getWithoutPrice:function(arr, callback) {
         db.query('select * from product_table where diamond=? and ideal_for=? and gold_color=? and fk_cat_id=?', [arr.diamond, arr.ideal_for, arr.gold_color, arr.fk_cat_id], callback);
+    },
+
+    updatePrice:function(arr,callback){
+        db.query("update product_table set product_price=? where product_id=?",[arr.product_price,arr.product_id],callback);
     }
 
 };

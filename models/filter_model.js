@@ -4,6 +4,7 @@ var pro = {
 
     getByAllFilter: function (diamond, color, ideal, cat, price, callback) {
 
+        //only 32 queries for filter
 //0
         if (price != 200000 && diamond != "all" && color != "all" && ideal != "all" && cat != 0) {
             //all filter

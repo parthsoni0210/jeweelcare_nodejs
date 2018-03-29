@@ -34,6 +34,7 @@ var revPid=require('./routes/reviewByPid');
 var wish=require('./routes/wishrouter');
 var wishDlt=require('./routes/wishalldeleterouter');
 var ldemo=require('./routes/demo_route');
+var updt_price=require('./routes/update_Price');
 
 var cnt=require('./routes/countRoute');
 
@@ -80,6 +81,7 @@ app.use('/reviewByPid',revPid);
 app.use('/wishlist',wish);
 app.use('/wishAllDelete',wishDlt);
 app.use('/live_demo',ldemo);
+app.use('/update_price',updt_price);
 
 app.use('/count',cnt);
 // catch 404 and forward to error handler
