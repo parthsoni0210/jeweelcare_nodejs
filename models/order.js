@@ -14,6 +14,10 @@ var order={
         db.query("select * from order_table where order_id=?",[id],callback);
     },
 
+    getOrderByStatus:function(status,callback){
+        db.query("select * from order_table where order_status=?",[status],callback);
+    },
+
     getOrderByCity:function(city,callback){
         db.query("select * from order_table where delivery_address LIKE '%"+city+"%' ",callback);
     },
