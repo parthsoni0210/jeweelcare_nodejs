@@ -10,8 +10,10 @@ router.delete('/:id', function (req, res, next) {
         }
     });
 });
-router.get('/:email', function (req, res, next) {
+router.get('/:email?', function (req, res, next) {
 
+    if(req.params.email)
+    {
     demo.getdemo(req.params.email, function (err, rows) {
         if (err) {
             res.json(err);
@@ -20,6 +22,18 @@ router.get('/:email', function (req, res, next) {
             res.json(rows);
         }
     });
+}
+else
+{
+    demo.getallDemo(function (err, rows) {
+        if (err) {
+            res.json(err);
+
+        } else {
+            res.json(rows);
+        }
+    });
+}
 });
 
 router.post('/', function (req, res, next) {
