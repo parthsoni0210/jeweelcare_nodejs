@@ -75,9 +75,9 @@ router.get('/:id?',function(req,res,next){
     
    });
     });
-    router.put('/:id',function(req,res,next){
+    router.put('/:id',upload.any(),function(req,res,next){
     
-    product.updateProduct(req.params.id,req.body,function(err,rows){
+    product.updateProduct(req.params.id,req.body,req.files[0].filename,req.files[1].filename,req.files[2].filename,function(err,rows){
     
    if(err)
      {

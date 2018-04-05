@@ -70,9 +70,9 @@ router.delete('/:id', function (req, res, next) {
 
   });
 });
-router.put('/:id', function (req, res, next) {
+router.put('/:id',upload.single('image'), function (req, res, next) {
 
-  category.updateCategory(req.params.id, req.body, function (err, rows) {
+  category.updateCategory(req.params.id, req.body,req.file.filename, function (err, rows) {
 
     if (err) {
       res.json(err);
