@@ -94,7 +94,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
     });
   }
   else if(req.body.product_image1 && !req.body.product_image2 && req.body.product_image3){
-    product.updateProduct(req.params.id, req.body,' ', req.files[1].filename,' ', function (err, rows) {
+    product.updateProduct(req.params.id, req.body,' ', req.files[0].filename,' ', function (err, rows) {
 
       if (err) {
         res.json(err);
@@ -105,7 +105,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
     });
   }
   else if(req.body.product_image1 && req.body.product_image2 && !req.body.product_image3){
-    product.updateProduct(req.params.id, req.body,' ',' ', req.files[2].filename, function (err, rows) {
+    product.updateProduct(req.params.id, req.body,' ',' ', req.files[0].filename, function (err, rows) {
 
       if (err) {
         res.json(err);
@@ -127,7 +127,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
     });
   }
   else if(!req.body.product_image1 && req.body.product_image2 && !req.body.product_image3){
-    product.updateProduct(req.params.id, req.body,req.files[0].filename,' ',req.files[2].filename, function (err, rows) {
+    product.updateProduct(req.params.id, req.body,req.files[0].filename,' ',req.files[1].filename, function (err, rows) {
 
       if (err) {
         res.json(err);
@@ -138,7 +138,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
     });
   }
   else if(req.body.product_image1 && !req.body.product_image2 && !req.body.product_image3){
-    product.updateProduct(req.params.id, req.body,' ',req.files[1].filename,req.files[2].filename, function (err, rows) {
+    product.updateProduct(req.params.id, req.body,' ',req.files[0].filename,req.files[1].filename, function (err, rows) {
 
       if (err) {
         res.json(err);
