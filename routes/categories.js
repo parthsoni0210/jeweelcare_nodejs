@@ -45,9 +45,9 @@ router.get('/:id?', function (req, res, next) {
     });
   }
 });
-router.post('/',upload.single('image'), function (req, res, next) {
+router.post('/', upload.single('image'), function (req, res, next) {
 
-  category.addCategory(req.body,req.file.filename,function (err, count) {
+  category.addCategory(req.body, req.file.filename, function (err, count) {
     console.log(req.body);
     if (err) {
       res.json(err);
@@ -70,16 +70,28 @@ router.delete('/:id', function (req, res, next) {
 
   });
 });
-router.put('/:id',upload.single('image'), function (req, res, next) {
+router.put('/:id', upload.single('image'), function (req, res, next) {
+  if (req.file) {
+    category.updateCategory(req.params.id, req.body, req.file.filename, function (err, rows) {
 
-  category.updateCategory(req.params.id, req.body,req.file.filename, function (err, rows) {
+      if (err) {
+        res.json(err);
+      }
+      else {
+        res.json(rows);
+      }
+    });
+  }
+  else {
+    category.updateCategory(req.params.id, req.body, null, function (err, rows) {
 
-    if (err) {
-      res.json(err);
-    }
-    else {
-      res.json(rows);
-    }
-  });
+      if (err) {
+        res.json(err);
+      }
+      else {
+        res.json(rows);
+      }
+    });
+  }
 });
 module.exports = router;
