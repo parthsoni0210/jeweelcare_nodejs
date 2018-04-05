@@ -83,7 +83,7 @@ router.put('/:id', upload.single('image'), function (req, res, next) {
     });
   }
   else {
-    category.updateCategory(req.params.id, req.body, null, function (err, rows) {
+    category.updateCategory(req.params.id, req.body, ' ', function (err, rows) {
 
       if (err) {
         res.json(err);

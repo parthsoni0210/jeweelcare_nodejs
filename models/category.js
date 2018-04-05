@@ -19,7 +19,7 @@ var category = {
         return db.query("delete from category_table where cat_id=?", [id], callback);
     },
     updateCategory: function (id, cat, filename, callback) {
-        if (filename != null) {
+        if (filename != ' ') {
             filename = "https://jewelcare.herokuapp.com/images/category/" + filename;
             return db.query("update category_table set cat_name=?,cat_image=? where cat_id=?", [cat.cat_name, filename, id], callback);
         }
