@@ -22,42 +22,42 @@ var product = {
     },
 
     updateProduct: function (id, p, img1, img2, img3, callback) {
-        if (img1 != null && img2 != null && img3 != null) {
+        if (img1 != ' ' && img2 != ' ' && img3 != ' ') {
             img1 = "https://jewelcare.herokuapp.com/images/products/" + img1;
             img2 = "https://jewelcare.herokuapp.com/images/products/" + img2;
             img3 = "https://jewelcare.herokuapp.com/images/products/" + img3;
             db.query("update product_table set product_name=?,product_price=?,product_weight=?,product_image1=?,product_image2=?,product_image3=?,product_soh=?,product_desc=?,fk_cat_id=? where product_id=?", [p.product_name, p.product_price, p.product_weight, img1, img2, img3, p.product_soh, p.product_desc, p.fk_cat_id, p.product_id], callback);
         }
-        else if (img1 != null && img2 == null && img3 == null) {
+        else if (img1 != ' ' && img2 == ' ' && img3 == ' ') {
             img1 = "https://jewelcare.herokuapp.com/images/products/" + img1;
 
 
             db.query("update product_table set product_name=?,product_price=?,product_weight=?,product_image1=?,product_soh=?,product_desc=?,fk_cat_id=? where product_id=?", [p.product_name, p.product_price, p.product_weight, img1, p.product_soh, p.product_desc, p.fk_cat_id, p.product_id], callback);
         }
-        else if (img1 == null && img2 != null && img3 == null) {
+        else if (img1 == ' ' && img2 != ' ' && img3 == ' ') {
 
             img2 = "https://jewelcare.herokuapp.com/images/products/" + img2;
 
             db.query("update product_table set product_name=?,product_price=?,product_weight=?,product_image2=?,product_soh=?,product_desc=?,fk_cat_id=? where product_id=?", [p.product_name, p.product_price, p.product_weight, img2, p.product_soh, p.product_desc, p.fk_cat_id, p.product_id], callback);
         }
-        else if (img1 == null && img2 == null && img3 != null) {
+        else if (img1 == ' ' && img2 == ' ' && img3 != ' ') {
 
             img3 = "https://jewelcare.herokuapp.com/images/products/" + img3;
             db.query("update product_table set product_name=?,product_price=?,product_weight=?,product_image3=?,product_soh=?,product_desc=?,fk_cat_id=? where product_id=?", [p.product_name, p.product_price, p.product_weight, img3, p.product_soh, p.product_desc, p.fk_cat_id, p.product_id], callback);
         }
-        else if (img1 != null && img2 != null && img3 == null) {
+        else if (img1 != ' ' && img2 != ' ' && img3 == ' ') {
             img1 = "https://jewelcare.herokuapp.com/images/products/" + img1;
             img2 = "https://jewelcare.herokuapp.com/images/products/" + img2;
 
             db.query("update product_table set product_name=?,product_price=?,product_weight=?,product_image1=?,product_image2=?,product_soh=?,product_desc=?,fk_cat_id=? where product_id=?", [p.product_name, p.product_price, p.product_weight, img1, img2, p.product_soh, p.product_desc, p.fk_cat_id, p.product_id], callback);
         }
-        else if (img1 != null && img2 == null && img3 != null) {
+        else if (img1 != ' ' && img2 ==' ' && img3 != ' ') {
             img1 = "https://jewelcare.herokuapp.com/images/products/" + img1;
 
             img3 = "https://jewelcare.herokuapp.com/images/products/" + img3;
             db.query("update product_table set product_name=?,product_price=?,product_weight=?,product_image1=?,product_image3=?,product_soh=?,product_desc=?,fk_cat_id=? where product_id=?", [p.product_name, p.product_price, p.product_weight, img1, img3, p.product_soh, p.product_desc, p.fk_cat_id, p.product_id], callback);
         }
-        else if (img1 == null && img2 != null && img3 != null) {
+        else if (img1 == ' ' && img2 != ' ' && img3 != ' ') {
 
             img2 = "https://jewelcare.herokuapp.com/images/products/" + img2;
             img3 = "https://jewelcare.herokuapp.com/images/products/" + img3;
