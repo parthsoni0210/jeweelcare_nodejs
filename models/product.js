@@ -10,8 +10,11 @@ var product = {
         db.query("select * from product_table where product_id=?", [id], callback);
     },
 
-    addProduct: function (p, callback) {
-        db.query("insert into product_table values(?,?,?,?,?,?,?,?,?,?,?,?,?)", [p.product_id, p.product_name, p.product_price, p.product_weight, p.product_image1, p.product_image2, p.product_image3, p.product_soh, p.product_desc, p.diamond, p.gold_color, p.ideal_for, p.fk_cat_id], callback);
+    addProduct: function (p,img1,img2,img3, callback) {
+        img1="https://jewelcare.herokuapp.com/images/products/"+img1;
+        img2="https://jewelcare.herokuapp.com/images/products/"+img2;
+        img3="https://jewelcare.herokuapp.com/images/products/"+img3;
+        db.query("insert into product_table values(?,?,?,?,?,?,?,?,?,?,?,?,?)", [p.product_id, p.product_name, p.product_price, p.product_weight, img1, img2,img3, p.product_soh, p.product_desc, p.diamond, p.gold_color, p.ideal_for, p.fk_cat_id], callback);
     },
 
     deleteProduct: function (id, callback) {

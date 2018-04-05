@@ -3,7 +3,7 @@ var db=require('../dbconnection'); //reference of dbconnection.js
 var users={
         
         user_login:function(user,callback){
-        return  db.query('select * from user_table where user_email=? and user_password=?',[user.user_email,user.user_password],callback);
+            return  db.query('select * from user_table where user_email=? and user_password=?',[user.user_email,user.user_password],callback);
         },
         sign_up:function(user,filename,callback){
             if(filename=="default"){
