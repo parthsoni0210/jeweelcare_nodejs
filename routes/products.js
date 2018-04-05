@@ -70,7 +70,8 @@ router.delete('/:id', function (req, res, next) {
   });
 });
 router.put('/:id', upload.any(), function (req, res, next) {
-  if (req.files[0] && req.files[1] && req.files[2]) {
+
+  if (!req.body.product_image1 && !req.body.product_image2 && !req.body.product_image3) {
     product.updateProduct(req.params.id, req.body, req.files[0].filename, req.files[1].filename, req.files[2].filename, function (err, rows) {
 
       if (err) {
@@ -81,7 +82,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
       }
     });
   }
-  else if(req.files[0] && !req.files[1] && !req.files[2]){
+  else if(!req.body.product_image1 && req.body.product_image2 && req.body.product_image3){
     product.updateProduct(req.params.id, req.body, req.files[0].filename, ' ',' ', function (err, rows) {
 
       if (err) {
@@ -92,7 +93,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
       }
     });
   }
-  else if(!req.files[0] && req.files[1] && !req.files[2]){
+  else if(req.body.product_image1 && !req.body.product_image2 && req.body.product_image3){
     product.updateProduct(req.params.id, req.body,' ', req.files[1].filename,' ', function (err, rows) {
 
       if (err) {
@@ -103,7 +104,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
       }
     });
   }
-  else if(!req.files[0] && !req.files[1] && req.files[2]){
+  else if(req.body.product_image1 && req.body.product_image2 && !req.body.product_image3){
     product.updateProduct(req.params.id, req.body,' ',' ', req.files[2].filename, function (err, rows) {
 
       if (err) {
@@ -114,7 +115,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
       }
     });
   }
-  else if(req.files[0] && req.files[1] && !req.files[2]){
+  else if(!req.body.product_image1 && !req.body.product_image2 && req.body.product_image3){
     product.updateProduct(req.params.id, req.body,req.files[0].filename, req.files[1].filename,' ', function (err, rows) {
 
       if (err) {
@@ -125,7 +126,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
       }
     });
   }
-  else if(req.files[0] && !req.files[1] && req.files[2]){
+  else if(!req.body.product_image1 && req.body.product_image2 && !req.body.product_image3){
     product.updateProduct(req.params.id, req.body,req.files[0].filename,' ',req.files[2].filename, function (err, rows) {
 
       if (err) {
@@ -136,7 +137,7 @@ router.put('/:id', upload.any(), function (req, res, next) {
       }
     });
   }
-  else if(!req.files[0] && req.files[1] && req.files[2]){
+  else if(req.body.product_image1 && !req.body.product_image2 && !req.body.product_image3){
     product.updateProduct(req.params.id, req.body,' ',req.files[1].filename,req.files[2].filename, function (err, rows) {
 
       if (err) {
