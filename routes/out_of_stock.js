@@ -20,7 +20,7 @@ router.get('/:soh',function(req,res,next){
 
 router.put('/', function (req, res, next) {
 
-    cart.updateCart(req.body, function (err, rows) {
+    product.updateSoh(req.body, function (err, rows) {
 
         if (err) {
             res.json(err);
