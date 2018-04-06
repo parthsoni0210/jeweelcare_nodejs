@@ -85,6 +85,10 @@ var product = {
         db.query("update product_table set product_price=? where product_id=?", [arr.product_price, arr.product_id], callback);
     },
 
+    updateSoh: function (arr, callback) {
+        db.query("update product_table set product_soh=? where product_id=?", [arr.product_soh, arr.product_id], callback);
+    },
+
     getProductBySoh: function (soh, callback) {
         if (soh == 0) {
             return db.query("select * from product_table where product_soh=0", callback);
