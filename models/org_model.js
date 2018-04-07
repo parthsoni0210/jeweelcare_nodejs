@@ -8,6 +8,17 @@ var org={
     getAllOrg:function(callback){
         db.query("select * from org_user_table",callback);
     },
+    
+    getOrgByDesignBranch:function(desig,branch,callback){
+        if(branch!='all')
+        {
+            db.query("select * from org_user_table where org_user_desig=? and org_user_branch=?",[desig,branch],callback);
+        }
+        else
+        {
+            db.query("select * from org_user_table where org_user_desig=?",[desig],callback);
+        }
+    },
 
     getOrgById:function(id,callback){
         db.query("select * from org_user_table where org_user_email=?",[id],callback);
