@@ -14,8 +14,6 @@ router.get('/:soh',function(req,res,next){
           res.json(rows);
           }
           });
-         
-    
 });
 
 router.put('/', function (req, res, next) {

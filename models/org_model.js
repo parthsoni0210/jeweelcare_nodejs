@@ -1,6 +1,9 @@
 var db=require('../dbconnection');
 
 var org={
+    org_login:function(user,callback){
+        return  db.query('select * from org_user_table where org_user_email=? and org_user_password=?',[user.org_user_email,user.org_user_password],callback);
+    },
 
     getAllOrg:function(callback){
         db.query("select * from org_user_table",callback);
@@ -11,7 +14,9 @@ var org={
     },
 
     addOrg:function(p,callback){
+        p.org_user_image='https://jewelcare.herokuapp.com/images/users/default.jpg';
         db.query("insert into org_user_table values(?,?,?,?,?,?,?,?,?)",[p.org_user_email,p.org_user_name,p.org_user_mobileno,p.org_user_address,p.org_user_gender,p.org_user_desig,p.org_user_branch,p.org_user_image,p.org_user_password],callback);
+    
     },
 
     deleteOrg:function(id,callback){

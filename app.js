@@ -39,6 +39,7 @@ var order_id=require('./routes/order_id_route');
 var orderCity=require('./routes/orderCity');
 var stock=require('./routes/out_of_stock');
 var order_status=require('./routes/order_status');
+var org_login=require('./routes/org_login');
 
 var cnt=require('./routes/countRoute');
 
@@ -90,6 +91,7 @@ app.use('/order_id',order_id);
 app.use('/order_city',orderCity);
 app.use('/soh',stock);
 app.use('/order_status',order_status);
+app.use('/org_login',org_login);
 
 app.use('/count',cnt);
 // catch 404 and forward to error handler
