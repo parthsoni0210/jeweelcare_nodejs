@@ -46,7 +46,7 @@ var order={
 
     orderChart:function(branch,cat,callback)
     {
-        db.query("SELECT o.* , c.* FROM order_table o, category_table c, product_table p WHERE o.delivery_address LIKE '%"+branch+"%' AND o.fk_product_id = p.product_id AND p.fk_cat_id = c.cat_id AND c.cat_name = ?",[cat,callback]);
+        db.query("select o.*,c.* from order_table o,category_table c,product_table p where o.delivery_address like '%"+branch+"%' and o.fk_product_id = p.product_id and p.fk_cat_id = c.cat_id and c.cat_name = ?",[cat,callback]);
     }
 
 };
