@@ -1,4 +1,4 @@
-/* var express = require('express');
+var express = require('express');
 var router = express.Router();
 var demo = require('../models/emailModel');
 
@@ -19,4 +19,4 @@ router.post('/', function(req, res, next) {
     })
 });
 
-module.exports = router; */
+module.exports = router;
