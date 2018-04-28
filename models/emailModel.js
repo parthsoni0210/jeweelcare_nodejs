@@ -13,7 +13,7 @@ var server  = email.server.connect({
 
 server.send({
    text:    demo.message,
-   from:    "reunirc@gmail.com", 
+   from:    "parth.soni0210@gmail.com", 
    to:      demo.name,
    subject: demo.subject
 }, callback);
