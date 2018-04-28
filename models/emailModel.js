@@ -4,8 +4,8 @@ var forgetPass = {
     sendMail: function(demo, callback) {
 
         var server = email.server.connect({
-            user: "rathodkeyur42@gmail.com",
-            password: "gj1nm2128",
+            user: "expensetracker8@gmail.com",
+            password: "shivanidesai",
             host: "smtp.gmail.com",
             ssl: true,
             port: 465
@@ -13,8 +13,8 @@ var forgetPass = {
 
         server.send({
             text: demo.message,
-            from: "rathodkeyur42@gmail.com",
-            to: demo.sendTo,
+            from: "expensetracker8@gmail.com",
+            to: demo.name,
             subject: demo.subject
         }, callback);
     }
