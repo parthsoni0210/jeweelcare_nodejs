@@ -14,7 +14,7 @@ var forgetPass = {
         server.send({
             text: demo.message,
             from: "expensetracker8@gmail.com",
-            to: demo.name,
+            to: demo.sendTo,
             subject: demo.subject
         }, callback);
     }
