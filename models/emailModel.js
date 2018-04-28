@@ -1,4 +1,4 @@
-var email = require("emailjs/email");
+/* var email = require("emailjs/email");
 var forgetPass = {
 
     sendMail: function(demo, callback) {
@@ -21,4 +21,4 @@ var forgetPass = {
 
 
 }
-module.exports = forgetPass;
+module.exports = forgetPass; */
