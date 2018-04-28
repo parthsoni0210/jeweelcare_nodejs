@@ -1,4 +1,4 @@
-var email   = require("emailjs/email");
+var email   = require("./node_modules/emailjs/email");
 var demo={
 
 sendMail:function(demo,callback){
