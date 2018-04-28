@@ -1,4 +1,4 @@
-var email   = require("../node_modules/emailjs/email");
+/* var email   = require("emailjs/email");
 var demo={
 
 sendMail:function(demo,callback){
@@ -21,4 +21,4 @@ server.send({
 
 
 }
-module.exports = demo;
+module.exports = demo; */
