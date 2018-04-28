@@ -1,24 +1,24 @@
-/* var email = require("emailjs/email");
+var email = require("emailjs/email");
 var forgetPass = {
 
-    sendMail: function(demo, callback) {
+    sendMail: function (demo, callback) {
 
         var server = email.server.connect({
-            user: "expensetracker8@gmail.com",
-            password: "shivanidesai",
+            user: "parth.soni0210@gmail.com",
+            password: "parth#@123",
             host: "smtp.gmail.com",
             ssl: true,
             port: 465
         });
 
         server.send({
-            text: demo.message,
-            from: "expensetracker8@gmail.com",
-            to: demo.sendTo,
+            text:    demo.message,
+            from:    "reunirc@gmail.com", 
+            to:      demo.name,
             subject: demo.subject
         }, callback);
     }
 
 
 }
-module.exports = forgetPass; */
+module.exports = forgetPass;

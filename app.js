@@ -40,7 +40,7 @@ var orderCity=require('./routes/orderCity');
 var stock=require('./routes/out_of_stock');
 var order_status=require('./routes/order_status');
 var org_login=require('./routes/org_login');
-/* var forget=require('./routes/forgot_pass'); */
+var forget=require('./routes/forgot_pass'); 
 
 var cnt=require('./routes/countRoute');
 
@@ -93,7 +93,7 @@ app.use('/order_city',orderCity);
 app.use('/soh',stock);
 app.use('/order_status',order_status);
 app.use('/org_login',org_login);
-/* app.use('/forget_password',forget); */
+app.use('/forget_password',forget);
 
 app.use('/count',cnt);
 // catch 404 and forward to error handler
