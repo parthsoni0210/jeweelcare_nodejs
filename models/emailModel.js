@@ -4,8 +4,8 @@ var demo={
 sendMail:function(demo,callback){
 
 var server  = email.server.connect({
-   user:    "parth.soni0210@gmail.com", 
-   password:"parth#@123", 
+   user:    "rathodkeyur1251@gmail.com", 
+   password:"gj1nm2128", 
    host:    "smtp.gmail.com", 
    ssl:     true,
    port:465
