@@ -42,7 +42,7 @@ var org={
         {
             filename = "https://jewelcare.herokuapp.com/images/users/default.jpg";
         }
-        db.query("update org_user_table set org_user_name=?,org_user_mobileno=?,org_user_address=?,org_user_gender=?,org_user_image=? where org_user_email=?",[p.org_user_name,p.org_user_mobileno,p.org_user_address,p.org_user_gender,filename,org.org_user_email],callback);
+        db.query("update org_user_table set org_user_name=?,org_user_mobileno=?,org_user_address=?,org_user_gender=?,org_user_image=? where org_user_email=?",[p.org_user_name,p.org_user_mobileno,p.org_user_address,p.org_user_gender,filename,p.org_user_email],callback);
     },
 
     changePass(org,callback){
