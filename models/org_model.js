@@ -34,13 +34,19 @@ var org={
         db.query("delete from org_user_table where org_user_email=?",[id],callback);
     },
 
-    updateOrg:function(id,p,callback){
-
-        db.query("update org_user_table set org_user_name=?,org_user_mobileno=?,org_user_address=?,org_user_gender=?,org_user_desig=?,org_user_branch=?,org_user_image=?,org_user_password=? where org_user_email=?",[p.org_user_name,p.org_user_mobileno,p.org_user_address,p.org_user_gender,p.org_user_desig,p.org_user_branch,p.org_user_image,p.org_user_password,id],callback);
+    updateOrg:function(p,filename,callback){
+        if (filename != ' ') {
+            filename = "https://jewelcare.herokuapp.com/images/users/" + filename;
+        }
+        else
+        {
+            filename = "https://jewelcare.herokuapp.com/images/users/default.jpg";
+        }
+        db.query("update org_user_table set org_user_name=?,org_user_mobileno=?,org_user_address=?,org_user_gender=?,org_user_image=? where org_user_email=?",[p.org_user_name,p.org_user_mobileno,p.org_user_address,p.org_user_gender,filename,org.org_user_email],callback);
     },
 
     changePass(org,callback){
-            return  db.query('update org_user_table set org_user_password=? where org_user_email=?',[org.org_user_password,org.org_user_email],callback);
+        return  db.query('update org_user_table set org_user_password=? where org_user_email=?',[org.org_user_password,org.org_user_email],callback);
     }
 
 };

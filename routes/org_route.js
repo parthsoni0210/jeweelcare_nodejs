@@ -1,6 +1,22 @@
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
+var path = require('path');
+
 var org = require('../models/org_model');
+
+
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/images/category/')
+  },
+  filename: (req, file, cb) => {
+    //x=file.fieldname + '-' + Date.now()+path.extname(file.originalname);
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+});
+var upload = multer({ storage: storage });
+
 
 router.get('/:id?', function (req, res, next) {
 
@@ -55,16 +71,30 @@ router.delete('/:id', function (req, res, next) {
 
   });
 });
-router.put('/:id', function (req, res, next) {
+router.put('/', upload.single('image'), function (req, res, next) {
+  if (req.file) {
 
-  org.updateOrg(req.params.id, req.body, function (err, rows) {
+    org.updateOrg(req.body, req.file.filename, function (err, rows) {
 
-    if (err) {
-      res.json(err);
-    }
-    else {
-      res.json(rows);
-    }
-  });
+      if (err) {
+        res.json(err);
+      }
+      else {
+        res.json(rows);
+      }
+    });
+  }
+  else{
+
+    org.updateOrg(req.body,' ', function (err, rows) {
+
+      if (err) {
+        res.json(err);
+      }
+      else {
+        res.json(rows);
+      }
+    });
+  }
 });
 module.exports = router;
