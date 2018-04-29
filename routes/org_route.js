@@ -8,7 +8,7 @@ var org = require('../models/org_model');
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/images/category/')
+    cb(null, 'public/images/users/')
   },
   filename: (req, file, cb) => {
     //x=file.fieldname + '-' + Date.now()+path.extname(file.originalname);
