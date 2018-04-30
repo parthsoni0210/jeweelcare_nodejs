@@ -2,7 +2,7 @@ var db=require('../dbconnection');
 var ldemo={
     getdemo:function(id,callback)
     {
-      return  db.query("select p.*,l.*  from product_table p ,live_demo_table l where  l.fk_product_id=p.product_id and l.fk_email_id=?  ORDER BY live_demo_status DESC",[id],callback);
+      return  db.query("select p.*,l.*  from product_table p ,live_demo_table l where  l.fk_product_id=p.product_id and l.fk_email_id=?  ORDER BY live_demo_id DESC",[id],callback);
     },
     delete_demo:function(id,callback)
     {
