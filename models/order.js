@@ -45,9 +45,9 @@ var order={
     
     orderChart:function(status,cat,callback)
     {
-        if(status==10)
+        if(status=='offline')
         {
-            db.query("select sum(o.order_amount) from order_table o,category_table c,product_table p where o.order_status=? and o.fk_product_id = p.product_id and p.fk_cat_id = c.cat_id and c.cat_id = ?",[status,cat],callback);
+            db.query("select sum(o.order_amount) from order_table o,category_table c,product_table p where o.order_status=10 and o.fk_product_id = p.product_id and p.fk_cat_id = c.cat_id and c.cat_id = ?",[cat],callback);
         }
         else
         {
